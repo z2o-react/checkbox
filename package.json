@@ -1,0 +1,53 @@
+{
+  "name": "@z2o/checkbox",
+  "version": "1.0.0-beta",
+  "description": "React checkbox component",
+  "keywords": [
+    "react",
+    "react-component",
+    "react-checkbox",
+    "checkbox",
+    "@z2o"
+  ],
+  "main": "lib/index",
+  "module": "es/index",
+  "files": [
+    "assets/*.css",
+    "es",
+    "lib"
+  ],
+  "scripts": {
+    "start": "rc-tools run storybook",
+    "compile": "rc-tools run compile --babel-runtime",
+    "build": "rc-tools run build",
+    "gh-pages": "rc-tools run gh-pages",
+    "pub": "rc-tools run pub",
+    "lint-staged": "lint-staged"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/z2o-react/checkbox.git"
+  },
+  "author": "lishuaishuai",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/z2o-react/checkbox/issues"
+  },
+  "homepage": "https://github.com/z2o-react/checkbox#readme",
+  "dependencies": {
+    "@babel/runtime": "^7.5.5",
+    "classnames": "^2.2.6"
+  },
+  "devDependencies": {
+    "@types/classnames": "^2.2.9",
+    "@types/react": "^16.8.23",
+    "@types/react-dom": "^16.8.4",
+    "@z2o/rc-tools": "1.x",
+    "lint-staged": "^9.2.0",
+    "pre-commit": "^1.2.2",
+    "prettier": "^1.18.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "typescript": "^3.5.3"
+  }
+}
