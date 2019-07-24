@@ -1,6 +1,6 @@
 {
   "name": "@z2o/checkbox",
-  "version": "1.0.0-beta",
+  "version": "1.0.0",
   "description": "React checkbox component",
   "keywords": [
     "react",
