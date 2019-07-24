@@ -7,14 +7,12 @@ class Test extends React.Component {
   render() {
     return (
       <div style={{ padding: '20px' }}>
-        <h3>sample</h3>
-        <Checkbox disabled />
-        <h3>默认选中</h3>
-        <Checkbox disabled defaultChecked />
-        <h3>label</h3>
-        <Checkbox disabled defaultChecked>
-          label
-        </Checkbox>
+        <h3>small</h3>
+        <Checkbox size='small'>small</Checkbox>
+        <h3>medium</h3>
+        <Checkbox>medium</Checkbox>
+        <h3>large</h3>
+        <Checkbox size='large'>large</Checkbox>
       </div>
     )
   }

@@ -1,9 +1,17 @@
 .z2o-checkbox {
   color: #1f2d3d;
   cursor: pointer;
-  padding: 0;
-  margin: 0 15px 0 0;
   vertical-align: middle;
+  font-size: 16px;
+  display: inline-block;
+  line-height: 1;
+
+  &:hover {
+    .z2o-checkbox__inner {
+      border-color: #38f;
+    }
+  }
+
   &__input {
     cursor: pointer;
     display: inline-block;
@@ -13,6 +21,7 @@
     height: 16px;
     vertical-align: middle;
   }
+
   &__original {
     position: absolute;
     left: 0;
@@ -23,21 +32,21 @@
     padding: 0;
     width: 100%;
     height: 100%;
-    z-index: 1;
     opacity: 0;
     cursor: pointer;
   }
+
   &__inner {
     position: relative;
-    top: 0;
-    left: 0;
     display: inline-block;
-    width: 16px;
-    height: 16px;
+    width: 100%;
+    height: 100%;
     border-radius: 2px;
     border: 1px solid #bbb;
     box-sizing: border-box;
     transition: all 0.3s;
+    z-index: 1;
+
     &::after {
       position: absolute;
       content: '';
@@ -58,9 +67,9 @@
   &__text {
     margin-left: 5px;
     margin-right: 5px;
-    line-height: 16px;
     vertical-align: middle;
   }
+
   &--checked {
     .z2o-checkbox__inner {
       border-color: #27f;
@@ -69,13 +78,32 @@
         transform: rotate(-45deg) scale(1);
       }
     }
+
+    .z2o-checkbox__original {
+      cursor: not-allowed;
+    }
   }
+
   &--disabled {
+    cursor: not-allowed;
+
     .z2o-checkbox__inner {
       background-color: #e5e5e5;
       border-color: #e5e5e5;
+      cursor: not-allowed;
+    }
+
+    .z2o-checkbox__text {
+      cursor: not-allowed;
+    }
+
+    &:hover {
+      .z2o-checkbox__inner {
+        border-color: #e5e5e5 !important;
+      }
     }
   }
+
   &--indeterminate {
     .z2o-checkbox__inner {
       border-color: #38f;
@@ -90,6 +118,32 @@
         -webkit-transform: rotate(0deg);
         transform: rotate(0deg);
       }
+    }
+  }
+
+  &--large {
+    font-size: 18px;
+    .z2o-checkbox__input {
+      width: 18px;
+      height: 18px;
+    }
+    .z2o-checkbox__inner::after {
+      width: 8px;
+      height: 4px;
+    }
+  }
+
+  &--small {
+    font-size: 14px;
+
+    .z2o-checkbox__input {
+      width: 14px;
+      height: 14px;
+    }
+
+    .z2o-checkbox__inner::after {
+      top: 3px;
+      left: 2px;
     }
   }
 }

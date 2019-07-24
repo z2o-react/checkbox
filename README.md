@@ -36,6 +36,7 @@ online example: [https://z2o-react.github.io/checkbox/](https://z2o-react.github
 | defaultChecked | Boolean    | `false`        | 初始是否选中                            |
 | disabled       | Boolean    | `false`        | 组件禁用状态                            |
 | indeterminate  | Boolean    | `false`        | 设置 indeterminate 状态，只负责样式控制 |
+| size           | string     | `medium`       | `large` 、`small`            |
 | onChange       | (event) => | -              | 变化时回调函数                          |
 
 ## License

@@ -8,43 +8,46 @@ export interface ICheckboxEventTarget extends ICheckboxProps {
 
 export interface ICheckboxEvent {
   target: ICheckboxEventTarget
-  preventDefault(): void
-  stopPropagation(): void
 }
 
 export interface ICheckboxProps {
   prefixCls?: string
   className?: string
   style?: React.CSSProperties
-  disabled: boolean
-  checked: boolean
-  indeterminate: boolean
+  disabled?: boolean
+  defaultChecked?: boolean
+  checked?: boolean
+  indeterminate?: boolean
+  size?: 'small' | 'medium' | 'large'
   onChange?: (e: ICheckboxEvent) => void
 }
 
 export interface ICheckboxState {
-  checked: boolean
+  checked?: boolean
 }
 
 export default class Checkbox extends React.Component<ICheckboxProps, ICheckboxState> {
-  static defaultProps = {
+  static defaultProps: ICheckboxProps = {
     prefixCls: 'z2o-checkbox',
     className: '',
     style: {},
     disabled: false,
     defaultChecked: false,
     indeterminate: false,
+    size: 'medium',
   }
 
-  constructor(props) {
+  constructor(props: ICheckboxProps) {
     super(props)
 
+    const checked = 'checked' in props ? props.checked : props.defaultChecked
+
     this.state = {
-      checked: 'checked' in props ? props.checked : props.defaultChecked,
+      checked,
     }
   }
 
-  static getDerivedStateFromProps(props, state) {
+  static getDerivedStateFromProps(props: ICheckboxProps, state: ICheckboxState) {
     if ('checked' in props) {
       return {
         ...state,
@@ -54,7 +57,7 @@ export default class Checkbox extends React.Component<ICheckboxProps, ICheckboxS
     return null
   }
 
-  handleChange = e => {
+  handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { disabled, onChange } = this.props
     if (disabled) {
       return
@@ -76,13 +79,14 @@ export default class Checkbox extends React.Component<ICheckboxProps, ICheckboxS
   }
 
   render() {
-    const { prefixCls, className, style, disabled, children, indeterminate } = this.props
+    const { prefixCls, className, style, disabled, children, indeterminate, size } = this.props
     const { checked } = this.state
 
     const classString = classNames(`${prefixCls}`, className, {
       [`${prefixCls}--checked`]: checked,
       [`${prefixCls}--disabled`]: disabled,
       [`${prefixCls}--indeterminate`]: indeterminate,
+      [`${prefixCls}--${size}`]: size !== 'medium',
     })
 
     return (
